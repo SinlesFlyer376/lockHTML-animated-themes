@@ -1,0 +1,42 @@
+#svg circle {
+	color: white;
+	
+	transition: stroke-dashoffset 1s linear;
+	stroke: #666;
+	stroke-width: 1em;
+	stroke-linecap:round;
+	transform: rotate(90deg) translate(-0px, -200px) scale(-1,-1) translate(-200px,-180px);
+
+} 
+#svg #redBack{
+	stroke-dashoffset: 183;
+}
+#svg #greenBack{
+	stroke-dashoffset: 275;
+}
+#svg #blueBack{
+	stroke-dashoffset: 370;
+}
+
+#svg #barRed{
+	stroke-dashoffset: 183;
+	stroke: url(#red);
+}
+#svg #barGreen{
+	stroke-dashoffset: 275;
+	stroke: url(#green);
+}
+#svg #barBlue{
+	stroke: url(#blue);
+	stroke-dashoffset: 370;
+}
+
+#svg #bar {
+	
+}
+html
+{
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	fill: white;
+}

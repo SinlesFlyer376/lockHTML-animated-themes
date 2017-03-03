@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+
+		<!-- The main CSS file -->
+		<link href="assets/css/style.css" rel="stylesheet" />
+
+		<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+	</head>
+	<style>
+		body {
+			font-family: Sans-Serif;
+			color: #FEFEFE;
+		}
+		#clock {
+			display: flex;
+		}
+	</style>
+	<body>
+		<div id="clock" class="light">
+
+			<div class="display">
+				<div class="digits" >
+					<div id="hourTen" class="zero">
+						<span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span><span class="d5"></span><span class="d6"></span><span class="d7"></span>
+					</div>
+					<div id="hourOne" class="three">
+						<span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span><span class="d5"></span><span class="d6"></span><span class="d7"></span>
+					</div>
+					<div class="dots"></div>
+					<div id="minTen" class="four">
+						<span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span><span class="d5"></span><span class="d6"></span><span class="d7"></span>
+					</div>
+					<div id="minOne" class="eight">
+						<span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span><span class="d5"></span><span class="d6"></span><span class="d7"></span>
+					</div>
+
+				</div>
+				
+			</div>
+			<div  style="position:relative;"><span id="myDate" style='position:absolute;bottom:0px;'>AM</span></div>
+
+		</div>
+
+
+
+		<script>
+			setClock();
+			var refreshTime = setInterval(setClock, 1000);
+			function setClock() 
+			{ 
+				var d = new Date();
+				var h = d.getHours();
+				var m = d.getMinutes();
+				
+				if(h <= 12){
+					document.getElementById("myDate").innerHTML="AM";
+				}
+				else
+				{
+					document.getElementById("myDate").innerHTML="PM";
+				}
+				
+				
+				if(h>12){h=h-12;}
+				if(h==0){h=12;}
+
+				var tens = document.getElementById("hourTen");
+				var ones = document.getElementById("hourOne");
+				setDigits(tens,ones,h);
+
+				tens = document.getElementById("minTen");
+				ones = document.getElementById("minOne");
+				setDigits(tens,ones,m);
+
+
+			}
+			function setDigits(tens,ones,value)
+			{
+				var numbers =["zero","one","two","three","four","five","six","seven","eight","nine"];
+
+				if(value<10)
+				{
+					var digit = 0;
+				}else
+				{
+					var digit=Math.floor(value/10); 
+				}
+				tens.className=numbers[digit];
+				digit=value%10; 
+				ones.className=numbers[digit];
+			}
+		</script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

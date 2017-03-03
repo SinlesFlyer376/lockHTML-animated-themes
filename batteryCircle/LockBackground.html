@@ -1,0 +1,52 @@
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<div id="cont" data-pct="100">
+	<svg id="svg" width="200" height="200" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+		<defs>
+			<linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+				<stop offset="0%"   stop-color="#F63284"/>
+				<stop offset="100%" stop-color="#E8113B"/>
+			</linearGradient>
+		</defs>
+
+		<circle r="90" cx="100" cy="100" fill="transparent" stroke-dashoffset="0" stroke-dasharray="565.48" style="" />
+
+		<text id="batt" x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="40px" >100%</text>
+
+		<circle id="bar" r="90" cx="100" cy="100" fill="transparent" stroke-dashoffset="0" stroke-linecap="round" stroke-dasharray="565.48" fill="stroke:url(#radial)" />
+	</svg>
+</div> 
+<script  type="text/cycript">
+changePercent([IS2System batteryPercent]);
+	var refreshBattery = setInterval(myTimer, 1000);
+	function myTimer()
+	{
+		changePercent([IS2System batteryPercent]);
+	}
+
+	function changePercent(val){
+		var battery = $("#batt");
+		battery.text(val+"%");
+		var $circle = $('#svg #bar');
+
+		if (isNaN(val)) {
+			val = 100; 
+		}
+		else{
+			var r = $circle.attr('r');
+			var c = Math.PI*(r*2);
+
+			if (val < 0) { val = 0;}
+			if (val > 100) { val = 100;}
+
+			var pct = ((100-val)/100)*c;
+
+			$circle.css({ strokeDashoffset: pct});
+
+			$('#cont').attr('data-pct',val);
+		}
+	};
+
+</script>

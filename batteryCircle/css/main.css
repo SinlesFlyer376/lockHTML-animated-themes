@@ -1,0 +1,16 @@
+#svg circle {
+	color: white;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  stroke: #666;
+  stroke-width: 1em;
+}
+#svg #bar {
+	stroke: url(#linear);
+}
+html
+{
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	fill: white;
+}

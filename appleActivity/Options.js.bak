@@ -1,0 +1,25 @@
+/*This should be simple enough select one of the following:
+•battery
+	-shows battery percentage
+•hour
+	-shows hour
+•minute
+	-shows minute
+•second
+	-shows seconds
+•weather
+	-shows temperature, minimum value is in min, and maximum value is in max. This decides how full(hot) it is or how empty(cold) it is.
+•wifi
+	-shows connection or something 
+•ram
+	-shows connection or something 
+
+
+*/
+
+var outer="battery"; 
+var center="weather";
+var inner="second";
+
+var min=-20;	// Fahrenheit
+var max=100;	//still Fahrenheit 

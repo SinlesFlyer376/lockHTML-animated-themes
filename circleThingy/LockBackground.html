@@ -1,0 +1,323 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+<style>
+	html{
+		margin-left: 13vw;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 100;
+		
+	}
+	.circleAnimation{
+
+	}
+</style>
+
+<svg id="svg" width="70vw" height ="70vw" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+	<!--change stroke-dashoffset to fill/empty the ring -->
+	<circle stroke-linecap="round" r="40%" cx="50%" cy="50%" fill="transparent" stroke-dashoffset="0%" stroke-width="2" stroke="white" stroke-dasharray=".8%"/>
+
+	<circle r="45%" cx="50%" cy="50%" fill="black" opacity=".5" />
+
+	<!--this is the circle that constantly moves-->
+	<!--	<circle class="circleAnimation" transform="translate(100% 115)" id="secStroke" r="40%" cx="50%" cy="50%" fill="transparent" stroke-dashoffset="0%" stroke-width="2" stroke="white" stroke-dasharray="252%"/>-->
+	<!--this one is the reset animation-->
+	<circle class="rotFoward" id="secStroke" r="40%" cx="50%" cy="50%" fill="transparent" stroke-dashoffset="0%" stroke-width="2" stroke="white" stroke-dasharray="252%"/>
+
+	<circle  r="45%" cx="50%" cy="50%" fill="none" stroke-width="2" stroke="white"/>
+	<text id="time" text-anchor="middle" x="50%" y="50%" font-size="3.2em" dy="10" fill="white" font-weight="100"></text>
+	<text id="date" text-anchor="middle" x="50%" y="35%" font-size="1.3em" fill="white" font-weight="100"></text>
+	<line x1="20%" y1="58%" x2="73%" y2="58%" fill="none" stroke="white" stroke-width="2" transform="translate(10,0)"/> 
+</svg>  
+<div  style="position:absolute;top:45vw;left:37vw;color:white;font-size:1.5em;"><span id="weather" style="color:skyblue">test</span><span id="units" style="position:relative; top:-8px;font-size:.5em">F</span></div> 
+<svg style="position:absolute; left:57vw;top:45.5vw;" id="sun" width="8vw" height ="8vw" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<g transform="scale(.2)"
+	   inkscape:label="Layer 1"
+	   inkscape:groupmode="layer"
+	   id="layer1">
+		<circle
+				r="60.483639"
+				cy="66.362183"
+				cx="66"
+				id="circle4172"
+				style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:7.03309536;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:7.03309553, 28.1323821;stroke-dashoffset:0;stroke-opacity:1" />
+		<circle
+				style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:5.76577759;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+				id="path4152"
+				cx="66"
+				cy="66.362183" 
+				r="49.585686" />
+	</g>
+</svg>
+<svg style="position:absolute; left:57.2vw;top:45.7vw;" id="moon" width="8vw" height ="8vw" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<g transform="scale(.14)"
+	   inkscape:label="Layer 1"
+	   inkscape:groupmode="layer"
+	   id="layer1">
+		<path
+			  style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:7.40912628;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+			  d="M 80.06815,5.42218 A 74.918321,74.918321 0 0 0 5.14987,80.34046 74.918321,74.918321 0 0 0 80.06815,155.25946 74.918321,74.918321 0 0 0 122.4731,142.00552 61.801519,45.026549 89.152161 0 1 79.04506,79.75221 61.801519,45.026549 89.152161 0 1 122.49336,18.6016 74.918321,74.918321 0 0 0 80.06815,5.42218 Z"
+			  id="path4143"
+			  inkscape:connector-curvature="0" />
+	</g>
+</svg>
+<div style="top:4.6%;left:50%;position:absolute;overflow:hidden;height:7px;width:7px;border-radius:50%;background:white;">
+</div>
+<div id="secondsCircle" class="animation">
+	<div style="float:right;left:0px;overflow:hidden;height:7px;width:7px;border-radius:50%;background:white;"></div>
+</div>
+<div id="0" class="fives" style="top:1.1%;left:50%"></div>
+<div id="5" class="fives" style="top:3.7%;left:66.8%;transform:rotate(30deg);"></div>
+<div id="10" class="fives" style="top:10.7%;left:79.2%;transform:rotate(60deg);"></div>
+<div id="15" class="fives" style="top:20.27%;left:83.7%;transform:rotate(90deg);"></div>
+<div id="20" class="fives" style="top:30%;left:79.1%;transform:rotate(120deg);"></div>
+<div id="25" class="fives" style="top:36.7%;left:66.6%;transform:rotate(150deg);"></div>
+<div id="30" class="fives" style="top:39.1%;left:50%;transform:rotate(180deg);"></div>
+<div id="35" class="fives" style="top:36.3%;left:32.4%;transform:rotate(210deg);"></div>
+<div id="40" class="fives" style="top:29.5%;left:20.5%;transform:rotate(240deg);"></div>
+<div id="45" class="fives" style="top:20.27%;left:16%;transform:rotate(270deg);"></div>
+
+<div id="50" class="fives" style="top:10.5%;left:20.5%;transform:rotate(300deg);"></div>
+
+<div id="55" class="fives" style="top:3.7%;left:33%;transform:rotate(330deg);"></div>
+<style>
+	.fives
+	{
+		border-radius: 5px;
+		-webkit-transition-duration: .5s; 
+		height: 10px;
+		width: 3px;
+		background: white;
+		position: absolute;
+	}
+	#secondsCircle
+	{
+		position: absolute; 
+		top:36.3vw;
+		left:21.4vw;
+		width: 58.2vw;
+
+	}
+	.animation
+	{
+		-webkit-transition-duration: 1s; 
+		transition-timing-function: linear;
+	}
+	#secStroke
+	{
+		transform-origin: center;
+	}
+	.rotFoward
+	{
+		transition: stroke-dashoffset 1s linear;
+		transform:rotate(-90deg);
+	}
+	.rotBackwards
+	{
+		transition: stroke-dashoffset 1s linear;
+		transform: scale(-1,1) rotate(-90deg);
+	}
+</style>
+<script type="text/cycript">
+	var getTemp = function() { return [IS2Weather currentTemperature]; };
+	var sunset = function() {return [IS2Weather sunsetTime];};
+	var sunrise = function() {return [IS2Weather sunriseTime];};
+</script>
+<script>
+	var days = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+	setClock();
+	setDate();
+	weather();
+
+	var refreshTime = setInterval(setClock, 1000);
+
+	function setClock()
+	{
+		var d = new Date();
+		var h = d.getHours();
+		var m = d.getMinutes();
+		if(h>12){h=h-12;}
+		if(h==0){h=12;setDate();}
+		if(m<10){m="0"+m;}
+		if(h<10){h='0'+h;}
+		var time = document.getElementById('time').textContent = (h+":"+m);
+		second();
+		weather();
+		cycle();
+	}
+	function cycle()
+	{
+		var d = new Date();
+		var tempSet = sunset().substr(0,2);
+		var tempRise = sunrise().substr(0,2);
+		if(tempSet<=12){tempSet = tempSet+12;}
+
+		if(d.getHours() > tempSet|| d.getHours()<tempRise)
+		{
+			var time =document.getElementById("sun").style.display="none";
+			var time =document.getElementById("moon").style.display="block";	
+		}else if(d.getHours() >= tempRise)
+		{ 
+			var time =document.getElementById("moon").style.display="none";
+			var time =document.getElementById("sun").style.display="hidden";	
+		}else{alert("time="+d.getHours()+"sunset=");}
+	}
+	function setDate()
+	{
+		var d = new Date();
+		var today = d.getDate(); 
+		var day = d.getDay();
+		var mon = d.getMonth();
+		if(day>10){day = "0"+day;}
+		var time = document.getElementById('date').textContent = ((mon+1)+"/"+today+" " +days[day]);
+	}
+	function foward(element,amount)
+	{
+		element.style.webkitTransform = "rotate("+(amount+180)+"deg)";
+	}
+	function back(element,amount)
+	{
+		element.style.webkitTransform =  "rotate("+(amount)+"deg)";
+	}
+	function second()
+	{ 
+		var d = new Date();
+		var s = d.getSeconds();
+		var circle = document.getElementById("secStroke");
+		var step = (252/59);
+		var circleRot = document.getElementById("secondsCircle");
+		var tick;
+
+
+		if(s == 0)
+		{
+			/*circle.setAttribute("class", "");*/
+			circleRot.className="";	
+		}
+		if(s == 1)
+		{
+			circleRot.className="animation";
+			circle.setAttribute("class", "rotFoward");
+		}
+		step = step*(s);
+		if(s == 59)
+		{
+			circle.setAttribute("class", "rotBackwards");
+			circleRot.className="";	
+			step =.1;
+			s = 0;
+		}
+		if(s == 0)
+		{
+			step =.1;
+			circleRot.className="";	
+
+		}
+		circleRot.style.webkitTransform = "rotate("+((360/59*s)-90)+"deg)";
+
+		circle.style.strokeDashoffset= -step+ "%";
+
+		switch(s)
+		{
+			case 5:
+				tick = document.getElementById("5");
+				foward(tick,30)
+				break;
+			case 10:
+				tick = document.getElementById("10");
+				foward(tick,60)
+				break;
+			case 15:
+				tick = document.getElementById("15");
+				foward(tick,90)
+				break;
+			case 20:
+				tick = document.getElementById("20");
+				foward(tick,120)
+				break;
+			case 25:
+				tick = document.getElementById("25");
+				foward(tick,150)
+				break;
+			case 30:
+				tick = document.getElementById("30");
+				foward(tick,180)
+				break;
+			case 35:
+				tick = document.getElementById("35");
+				foward(tick,210)
+				break;
+			case 40:
+				tick = document.getElementById("40");
+				foward(tick,240)
+				break;
+			case 45:
+				tick = document.getElementById("45");
+				foward(tick,270)
+				break;
+			case 50:
+				tick = document.getElementById("50");
+				foward(tick,300)
+				break;
+			case 55:
+				tick = document.getElementById("55");
+				foward(tick,330)
+				break;
+		}
+		switch(s)
+		{
+			case 6:
+				tick = document.getElementById("5");
+				back(tick,30)
+				break;
+			case 11:
+				tick = document.getElementById("10");
+				back(tick,60)
+				break;
+			case 16:
+				tick = document.getElementById("15");
+				back(tick,90)
+				break;
+			case 21:
+				tick = document.getElementById("20");
+				back(tick,120)
+				break;
+			case 26:
+				tick = document.getElementById("25");
+				back(tick,150)
+				break;
+			case 31:
+				tick = document.getElementById("30");
+				back(tick,180)
+				break;
+			case 36:
+				tick = document.getElementById("35");
+				back(tick,210)
+				break;
+			case 41:
+				tick = document.getElementById("40");
+				back(tick,240)
+				break;
+			case 46:
+				tick = document.getElementById("45");
+				back(tick,270)
+				break;
+			case 51:
+				tick = document.getElementById("50");
+				back(tick,300)
+				break;
+			case 56:
+				tick = document.getElementById("55");
+				back(tick,330)
+				break;
+		}
+
+	}
+	function weather()
+	{
+		var temperature = getTemp();
+		var text = document.getElementById("weather");
+		text.innerHTML = (temperature);
+		text = document.getElementById("units");
+		text.innerHTML='\xB0'+"F";
+	}
+</script>
